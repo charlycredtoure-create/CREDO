@@ -1,0 +1,21 @@
+PORTFOLIO CRÉDO : MISE EN LIGNE
+
+1) Vos coordonnées : ouvrez script.js et remplissez le bloc CONTACT en haut
+   (WhatsApp, e-mail, LinkedIn, Instagram). Un bouton laissé vide est masqué.
+
+2) Netlify : allez sur app.netlify.com/drop et glissez-déposez le DOSSIER
+   décompressé. Le site est en ligne en quelques secondes.
+   Vercel : installez Vercel CLI puis lancez « vercel --prod » dans le dossier,
+   ou importez le dossier via un dépôt GitHub sur vercel.com/new.
+
+3) Nom de domaine : dans Netlify (Domain management) ou Vercel (Settings > Domains).
+
+4) Ensuite : ajoutez vos chiffres et résultats de campagnes dans index.html,
+   section « Projets », puis remettez le dossier en ligne.
+
+AJOUTER VOS RÉALISATIONS GRAPHIQUES (flyers, visuels réseaux sociaux, logos…)
+- Copiez vos images dans assets/realisations/
+- Dans script.js, bloc REALISATIONS : ajoutez une ligne par image
+  (src, titre, categorie, projet). Les filtres se créent tout seuls.
+- La section « Créations » s'affiche automatiquement dès qu'il y a au moins un visuel.
+- Pour voir la mise en page avant d'ajouter vos images : ouvrez le site avec ?apercu à la fin de l'adresse.

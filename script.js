@@ -1,0 +1,119 @@
+/* ====== À MODIFIER : vos réalisations graphiques ======
+   1) Déposez vos images dans le dossier assets/realisations/
+   2) Ajoutez une ligne par image ci-dessous (copiez le modèle).
+   categorie : au choix, ex. "Réseaux sociaux", "Flyers & affiches", "Logos & identités", "Autres"
+   Les filtres se créent automatiquement. Liste vide = la section est masquée.
+   Astuce : ajoutez ?apercu à l'adresse du site pour voir la mise en page avec des exemples. */
+const REALISATIONS = [
+  // { src: "assets/realisations/flyer-fib-2026.jpg", titre: "Flyer officiel", categorie: "Flyers & affiches", projet: "Foire des Innovations Bénin" },
+  // { src: "assets/realisations/post-vdf-01.jpg", titre: "Annonce du programme", categorie: "Réseaux sociaux", projet: "Village des fêtes" },
+  // { src: "assets/realisations/logo-client.png", titre: "Logo", categorie: "Logos & identités", projet: "Nom du client" },
+];
+/* ====================================================== */
+/* ====== À MODIFIER : vos coordonnées (laissez "" pour masquer un bouton) ====== */
+const CONTACT = {
+  whatsapp: "",   // numéro international sans + ni espaces, ex. "22901234567"
+  email: "",      // ex. "contact@votredomaine.com"
+  linkedin: "",   // ex. "https://www.linkedin.com/in/votre-profil"
+  instagram: ""   // ex. "https://www.instagram.com/votre-compte"
+};
+/* ============================================================================= */
+(function () {
+  var box = document.getElementById("contact-links");
+  var items = [
+    [CONTACT.whatsapp && "https://wa.me/" + CONTACT.whatsapp, "WhatsApp", true],
+    [CONTACT.email && "mailto:" + CONTACT.email, "E-mail", false],
+    [CONTACT.linkedin, "LinkedIn", false],
+    [CONTACT.instagram, "Instagram", false]
+  ];
+  items.forEach(function (it) {
+    if (!it[0]) return;
+    var a = document.createElement("a");
+    a.href = it[0]; a.textContent = it[1];
+    a.className = "btn " + (it[2] ? "primary" : "ghost");
+    if (it[0].indexOf("http") === 0) { a.target = "_blank"; a.rel = "noopener"; }
+    box.appendChild(a);
+  });
+  if (!box.children.length) box.innerHTML = '<p>Coordonnées bientôt disponibles.</p>';
+  document.getElementById("year").textContent = new Date().getFullYear();
+  var els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  els.forEach(function (el) { el.classList.add("pre"); io.observe(el); });
+})();
+
+/* ---------- Galerie ---------- */
+(function () {
+  var data = REALISATIONS.slice(), preview = false;
+  function ph(w, h, t, c) {
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '"><rect width="100%" height="100%" fill="' + c + '"/><text x="50%" y="50%" fill="#fff" font-family="Georgia,serif" font-size="' + Math.round(w / 12) + '" text-anchor="middle" dominant-baseline="middle">' + t + '</text></svg>';
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+  if (!data.length && /apercu/.test(location.search)) {
+    preview = true;
+    data = [
+      { src: ph(800, 1000, "Flyer", "#3a2f1c"), titre: "Exemple de flyer", categorie: "Flyers & affiches", projet: "Aperçu" },
+      { src: ph(800, 800, "Post", "#b8893b"), titre: "Exemple de publication", categorie: "Réseaux sociaux", projet: "Aperçu" },
+      { src: ph(800, 600, "Logo", "#1a1814"), titre: "Exemple de logo", categorie: "Logos & identités", projet: "Aperçu" },
+      { src: ph(800, 1100, "Story", "#6b4e1e"), titre: "Exemple de story", categorie: "Réseaux sociaux", projet: "Aperçu" },
+      { src: ph(800, 800, "Carrousel", "#8a6a2c"), titre: "Exemple de carrousel", categorie: "Réseaux sociaux", projet: "Aperçu" },
+      { src: ph(800, 1000, "Affiche", "#2a241b"), titre: "Exemple d’affiche", categorie: "Flyers & affiches", projet: "Aperçu" }
+    ];
+  }
+  var sec = document.getElementById("creations");
+  if (!data.length || !sec) return;
+  sec.hidden = false;
+  document.getElementById("nav-creations").hidden = false;
+
+  var gal = document.getElementById("gallery"), fbox = document.getElementById("filters");
+  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
+  var current = "Tous", shown = [], idx = 0;
+
+  var cats = ["Tous"];
+  data.forEach(function (d) { if (d.categorie && cats.indexOf(d.categorie) < 0) cats.push(d.categorie); });
+  if (cats.length > 2) cats.forEach(function (c) {
+    var b = document.createElement("button");
+    b.type = "button"; b.textContent = c; b.className = "chip" + (c === "Tous" ? " on" : "");
+    b.addEventListener("click", function () {
+      current = c;
+      Array.prototype.forEach.call(fbox.children, function (x) { x.classList.toggle("on", x === b); });
+      render();
+    });
+    fbox.appendChild(b);
+  });
+
+  function render() {
+    gal.innerHTML = "";
+    shown = data.filter(function (d) { return current === "Tous" || d.categorie === current; });
+    shown.forEach(function (d, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "item";
+      var img = document.createElement("img");
+      img.src = d.src; img.alt = d.titre || "Réalisation"; img.loading = "lazy"; img.decoding = "async";
+      var cap = document.createElement("span");
+      cap.className = "cap";
+      cap.textContent = (d.titre || "") + (d.projet ? " · " + d.projet : "");
+      b.appendChild(img); b.appendChild(cap);
+      b.addEventListener("click", function () { open(i); });
+      gal.appendChild(b);
+    });
+  }
+  function show() {
+    var d = shown[idx];
+    lbImg.src = d.src; lbImg.alt = d.titre || "";
+    lbCap.textContent = (d.titre || "") + (d.projet ? " · " + d.projet : "") + (d.categorie ? " · " + d.categorie : "");
+  }
+  function open(i) { idx = i; show(); if (!lb.open) lb.showModal(); }
+  function step(n) { idx = (idx + n + shown.length) % shown.length; show(); }
+  document.getElementById("lb-close").addEventListener("click", function () { lb.close(); });
+  document.getElementById("lb-prev").addEventListener("click", function () { step(-1); });
+  document.getElementById("lb-next").addEventListener("click", function () { step(1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+  lb.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+  render();
+})();
