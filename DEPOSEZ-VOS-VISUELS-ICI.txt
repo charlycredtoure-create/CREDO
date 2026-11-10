@@ -1,0 +1,2 @@
+Déposez ici vos visuels (JPG, PNG ou WebP, idéalement 1200 px de large, moins de 400 Ko chacun),
+puis déclarez-les dans script.js, bloc REALISATIONS.
