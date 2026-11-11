@@ -20,12 +20,22 @@ const REALISATIONS = [
   { src: "post-helpmeprof-datascience.jpg", titre: "Boostez votre carrière en Data Science", categorie: "Post", projet: "Help Me Prof" },
   { src: "post-helpmeprof-data-scientist.jpg", titre: "Devenez Data Scientist", categorie: "Post", projet: "Help Me Prof" },
   { src: "post-helpmeprof-disponibilite.jpg", titre: "Suivez les cours selon votre disponibilité", categorie: "Post", projet: "Help Me Prof" },
+  { src: "flyer-esbia-domaine.jpg", titre: "Découvrez le domaine qui vous passionne", categorie: "Flyer", projet: "ESBIA" },
+  { src: "flyer-esbia-technologie.jpg", titre: "Devenez ingénieur dans les métiers de la technologie", categorie: "Flyer", projet: "ESBIA" },
+  { src: "flyer-esbia-commerce-logistique.jpg", titre: "BTS commerce, transport et logistique", categorie: "Flyer", projet: "ESBIA" },
+  { src: "flyer-esbia-finance.jpg", titre: "Finance, Banque, Assurance, Tourisme, Business…", categorie: "Flyer", projet: "ESBIA" },
+  { src: "flyer-esbia-inscription.jpg", titre: "Des enseignements aux normes internationales", categorie: "Flyer", projet: "ESBIA" },
   { src: "logo-loulous.jpg", titre: "Galeries des Loulous", categorie: "Logo", projet: "Galeries des Loulous" },
   { src: "logo-gama-services-bleu.jpg", titre: "Gama Services Int. · version bleue", categorie: "Logo", projet: "Gama Services International" },
   { src: "logo-gama-services-degrade.jpg", titre: "Gama Services International · version dégradé", categorie: "Logo", projet: "Gama Services International" },
   { src: "logo-cafe-matinal.jpg", titre: "Le Café Matinal", categorie: "Logo", projet: "Le Café Matinal" },
   { src: "logo-oriental-containers.jpg", titre: "Oriental Containers Group", categorie: "Logo", projet: "Oriental Containers Group" },
   { src: "logo-mentor-agri.jpg", titre: "Mentor Agri Group", categorie: "Logo", projet: "Mentor Agri Group" },
+  { src: "logo-esd-global-partner.jpg", titre: "ESD Global Partner", categorie: "Logo", projet: "ESD Global Partner" },
+  { src: "logo-global-caf-partner.jpg", titre: "Global CAF Partner", categorie: "Logo", projet: "Global CAF Partner" },
+  { src: "logo-help-me-prof.jpg", titre: "Help Me Prof", categorie: "Logo", projet: "Help Me Prof" },
+  { src: "logo-padol-energy.jpg", titre: "Padol Energy", categorie: "Logo", projet: "Padol Energy" },
+  { src: "logo-upebil.jpg", titre: "UPEBIL", categorie: "Logo", projet: "Union Professionnelle des Électriciens de Lokossa" },
 ];
 /* ====================================================== */
 /* ====== À MODIFIER : vos coordonnées (laissez "" pour masquer un bouton) ====== */
