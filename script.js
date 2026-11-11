@@ -5,9 +5,17 @@
    Les filtres se créent automatiquement. Liste vide = la section est masquée.
    Astuce : ajoutez ?apercu à l'adresse du site pour voir la mise en page avec des exemples. */
 const REALISATIONS = [
-  // { src: "assets/realisations/flyer-fib-2026.jpg", titre: "Flyer officiel", categorie: "Flyers & affiches", projet: "Foire des Innovations Bénin" },
-  // { src: "assets/realisations/post-vdf-01.jpg", titre: "Annonce du programme", categorie: "Réseaux sociaux", projet: "Village des fêtes" },
-  // { src: "assets/realisations/logo-client.png", titre: "Logo", categorie: "Logos & identités", projet: "Nom du client" },
+  { src: "post-eforp-rentree.jpg", titre: "La rentrée arrive…", categorie: "Post", projet: "EFORP Bénin" },
+  { src: "post-eforp-metier.jpg", titre: "Quel métier t’intéresse ?", categorie: "Post", projet: "EFORP Bénin" },
+  { src: "post-eforp-bientot.jpg", titre: "Quelque chose se prépare…", categorie: "Post", projet: "EFORP Bénin" },
+  { src: "post-djanta-septembre.jpg", titre: "Fructueux mois de Septembre", categorie: "Post", projet: "Djanta Shop" },
+  { src: "post-djanta-weekend.jpg", titre: "Outfit parfait pour le Weekend", categorie: "Post", projet: "Djanta Shop" },
+  { src: "logo-loulous.jpg", titre: "Galeries des Loulous", categorie: "Logo", projet: "Galeries des Loulous" },
+  { src: "logo-gama-services-bleu.jpg", titre: "Gama Services Int. · version bleue", categorie: "Logo", projet: "Gama Services International" },
+  { src: "logo-gama-services-degrade.jpg", titre: "Gama Services International · version dégradé", categorie: "Logo", projet: "Gama Services International" },
+  { src: "logo-cafe-matinal.jpg", titre: "Le Café Matinal", categorie: "Logo", projet: "Le Café Matinal" },
+  { src: "logo-oriental-containers.jpg", titre: "Oriental Containers Group", categorie: "Logo", projet: "Oriental Containers Group" },
+  { src: "logo-mentor-agri.jpg", titre: "Mentor Agri Group", categorie: "Logo", projet: "Mentor Agri Group" },
 ];
 /* ====================================================== */
 /* ====== À MODIFIER : vos coordonnées (laissez "" pour masquer un bouton) ====== */
